@@ -1,6 +1,6 @@
 # Obsidian Task Monitor
 
-一个轻量级 Python 守护进程，通过桥接 Obsidian 每日计划与 [TaskNotes](https://github.com/calber-m/obsidian-tasknotes) 插件的番茄钟数据，实现自动化的任务防沉迷与动态分流指引。
+一个轻量级 Python 守护进程，通过桥接 Obsidian 每日计划与 [TaskNotes](https://github.com/callumalpass/tasknotes) 插件的番茄钟数据，实现自动化的任务防沉迷与动态分流指引。
 
 当你在某个任务上花费的番茄钟达到或超出当日配额时，程序会强制弹出置顶窗口打断你，并同时展示当日尚有盈余的任务供你切换。
 
