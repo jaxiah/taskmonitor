@@ -93,9 +93,10 @@ def show_alert(overloaded: list, pending: list) -> None:
 
     # 红色警告区
     for task_name, done, quota in overloaded:
+        msg = f"🛑  [{task_name}]\n{'额度已用完' if done == quota else f'已花费 {done}/{quota} 个番茄钟，严重超时！'}"
         tk.Label(
             win,
-            text=f"🛑  [{task_name}]\n已花费 {done}/{quota} 个番茄钟，严重超时！",
+            text=msg,
             fg="#ff4444",
             bg="#1a1a1a",
             font=("Microsoft YaHei", 13, "bold"),
@@ -231,7 +232,7 @@ def run() -> None:
                 for task_name, quota in quotas.items():
                     done = task_done_count(task_name, pomo)
                     bar = "█" * done + "░" * max(0, quota - done)
-                    status = "⚠ OVER" if done >= quota else "OK"
+                    status = "⚠ FULL" if done == quota else ("✘ OVER" if done > quota else "OK   ")
                     print(f"  [{status}]  {done}/{quota}  {bar}  {task_name}")
                 print()
 
