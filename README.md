@@ -4,6 +4,8 @@
 
 当你在某个任务上花费的番茄钟达到或超出当日配额时，程序会强制弹出置顶窗口打断你，并同时展示当日尚有盈余的任务供你切换。
 
+![弹窗示例](image.jpg)
+
 ## 设计思想
 
 多任务并行推进时，人很容易陷入"单一项目陷阱"——只盯着一件事做，表面上进度不错，但其他事情毫无进展。这个工具的核心逻辑是：
@@ -28,16 +30,16 @@
 ```json
 {
   "daily_notes_path": "D:/JNote/daily",
-  "data_json_path":   "D:/JNote/.obsidian/plugins/tasknotes/data.json",
-  "poll_interval":    3
+  "data_json_path": "D:/JNote/.obsidian/plugins/tasknotes/data.json",
+  "poll_interval": 3
 }
 ```
 
-| 字段 | 说明 |
-|------|------|
+| 字段               | 说明                                              |
+| ------------------ | ------------------------------------------------- |
 | `daily_notes_path` | Obsidian 日记所在目录，文件名须为 `YYYY-MM-DD.md` |
-| `data_json_path` | TaskNotes 插件的 `data.json` 完整路径 |
-| `poll_interval` | 轮询间隔（秒），默认 3 |
+| `data_json_path`   | TaskNotes 插件的 `data.json` 完整路径             |
+| `poll_interval`    | 轮询间隔（秒），默认 3                            |
 
 ## 日记格式
 
@@ -78,12 +80,10 @@ pythonw monitor.py
 
 ## 弹窗行为
 
-![弹窗示例](image.jpg)
-
-| 状态 | 触发条件 | 弹窗文字 |
-|------|----------|----------|
-| 额度已用完 | `done == quota` | 🛑 额度已用完 |
-| 严重超时 | `done > quota` | 🛑 已花费 N/M 个番茄钟，严重超时！ |
+| 状态       | 触发条件        | 弹窗文字                           |
+| ---------- | --------------- | ---------------------------------- |
+| 额度已用完 | `done == quota` | 🛑 额度已用完                      |
+| 严重超时   | `done > quota`  | 🛑 已花费 N/M 个番茄钟，严重超时！ |
 
 **阶梯式打断**：若无视警告继续做同一任务，每多完成一个番茄钟触发一次新弹窗。
 
