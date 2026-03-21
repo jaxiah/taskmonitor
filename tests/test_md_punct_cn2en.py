@@ -1,5 +1,10 @@
 """Tests for md_punct_cn2en.py"""
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from md_punct_cn2en import convert_markdown, _convert_text
 
 PASS = FAIL = 0

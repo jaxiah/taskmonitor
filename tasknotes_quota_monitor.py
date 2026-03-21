@@ -22,6 +22,7 @@ Config
 
 Changelog
 ---------
+2026-03-21  task_done_count 改用 Path.stem 精确匹配，修复 endswith 误匹配子串问题
 2026-03-21  per-script config 自动生成；从 monitor.py 重命名
 2026-03-21  日记配额变更时清除对应任务的警告历史，立即重新评估
 2026-03-21  区分"额度已用完"（done==quota）与"严重超时"（done>quota）
@@ -96,9 +97,9 @@ def count_pomodoros(cfg: dict, d: date) -> dict:
 
 
 def task_done_count(task_name: str, pomo_counts: dict) -> int:
-    """路径后缀匹配，统计 task_name 的完成数"""
-    suffix = f"{task_name.lower()}.md"
-    return sum(v for k, v in pomo_counts.items() if k.lower().endswith(suffix))
+    """文件名精确匹配（忽略大小写），统计 task_name 的完成数"""
+    task_lower = task_name.lower()
+    return sum(v for k, v in pomo_counts.items() if Path(k).stem.lower() == task_lower)
 
 
 # ---------------------------------------------------------------------------
