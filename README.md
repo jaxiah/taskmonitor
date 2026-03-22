@@ -2,11 +2,9 @@
 
 存放一些功能实用且一个文件就能讲清楚的脚本.
 
-- [tasknotes\_quota\_monitor.py](#tasknotes_quota_monitorpy)
-- [md\_punct\_cn2en.py](#md_punct_cn2enpy)
-- [clang\_format\_dir.py](#clang_format_dirpy)
-
----
+- [tasknotes_quota_monitor.py](#tasknotes_quota_monitorpy)
+- [md_punct_cn2en.py](#md_punct_cn2enpy)
+- [clang_format_dir.py](#clang_format_dirpy)
 
 ## tasknotes_quota_monitor.py
 
@@ -34,8 +32,6 @@ pythonw tasknotes_quota_monitor.py   # 后台运行（无命令行窗口）
 
 依赖: Python 3.8+, 标准库 (`tkinter`, `json`, `re`), 无需额外安装.
 
----
-
 ## md_punct_cn2en.py
 
 将 Markdown 文件中的中文 (全角) 标点替换为英文 (半角) 标点, 并修正 CJK 与 Latin/数字之间的空格. 代码块, 行内代码, URL 保持原样不动.
@@ -47,8 +43,6 @@ python md_punct_cn2en.py -i file.md       # 原地修改
 python md_punct_cn2en.py -i docs/         # 递归处理目录
 python md_punct_cn2en.py -i "**/*.md"     # glob 模式
 ```
-
----
 
 ## clang_format_dir.py
 
