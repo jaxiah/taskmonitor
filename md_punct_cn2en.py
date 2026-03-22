@@ -114,11 +114,12 @@ def _convert_text(text: str) -> str:
     # 3. Clean up whitespace artefacts introduced by the substitutions above
     # a) Remove space that ended up immediately before punctuation
     text = re.sub(r" +([,.:;!?])", r"\1", text)
-    # b) Remove space just inside brackets
+    # b) Remove space just inside brackets.
+    #    Exception: `[ ]` / `[x]` are Markdown task-list checkboxes — leave them alone.
     text = re.sub(r"\( +", "(", text)
     text = re.sub(r" +\)", ")", text)
-    text = re.sub(r"\[ +", "[", text)
-    text = re.sub(r" +\]", "]", text)
+    text = re.sub(r"\[ +(?!\])", "[", text)   # don't eat the space in `[ ]`
+    text = re.sub(r"(?<!\[) +\]", "]", text)  # don't eat the space in `[ ]`
     # c) Collapse multiple consecutive spaces (but not leading indentation)
     text = re.sub(r"(?<=\S) {2,}", " ", text)
     # d) Strip trailing whitespace from every line

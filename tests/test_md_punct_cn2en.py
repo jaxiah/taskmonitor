@@ -65,6 +65,17 @@ check("trailing space stripped", _convert_text("行末，"), "行末,")
 check("collapse multiple spaces", _convert_text("你好，  世界"), "你好, 世界")
 
 # ---------------------------------------------------------------------------
+print("\n=== Markdown task-list checkboxes preserved ===")
+# ---------------------------------------------------------------------------
+
+check("unchecked box untouched",        convert_markdown("- [ ] buy milk"),              "- [ ] buy milk")
+check("checked box (x) untouched",      convert_markdown("- [x] done"),                  "- [x] done")
+check("checked box (X) untouched",      convert_markdown("- [X] done"),                  "- [X] done")
+check("checkbox with Chinese content",  convert_markdown("- [ ] 完成任务，今天"),           "- [ ] 完成任务, 今天")
+check("checkbox with Chinese colon",    convert_markdown("- [ ] 注意：截止今天"),           "- [ ] 注意: 截止今天")
+check("mixed checked and unchecked", convert_markdown("- [x] 已完成\n- [ ] 未完成，继续"), "- [x] 已完成\n- [ ] 未完成, 继续")
+
+# ---------------------------------------------------------------------------
 print("\n=== Code blocks & inline code preserved ===")
 # ---------------------------------------------------------------------------
 
