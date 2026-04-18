@@ -59,10 +59,6 @@ def is_completed_work(entry: dict) -> bool:
     return entry.get("type") == "work" and entry.get("completed") is True
 
 
-def entry_id(entry: dict) -> tuple:
-    """唯一标识一条 pomodoro 记录，用于检测新条目。"""
-    return (entry.get("taskPath", ""), entry.get("startTime", ""))
-
 
 def count_today_pomos_for_task(history: list, task_path: str) -> int:
     today = date.today().strftime("%Y-%m-%d")
@@ -249,9 +245,8 @@ def run() -> None:
     cfg = load_config()
     interval = cfg.get("poll_interval", 3)
 
-    seen: set = set()
+    last_count = -1  # -1 表示尚未初始化
     mtime_json = None
-    initialized = False  # 第一次扫描只建立基线，不触发弹窗
 
     print(f"[SaveState] 启动  |  轮询间隔 {interval}s")
     print(f"[SaveState] data.json: {cfg['data_json_path']}")
@@ -267,17 +262,17 @@ def run() -> None:
             if new_mtime != mtime_json:
                 mtime_json = new_mtime
                 history = load_pomo_history(cfg)
-                completed = [e for e in history if is_completed_work(e)]
 
-                if not initialized:
-                    for e in completed:
-                        seen.add(entry_id(e))
-                    initialized = True
-                    print(f"[SaveState] 基线建立，已知记录 {len(seen)} 条")
+                if last_count == -1:
+                    # 第一次扫描只建立基线，不触发弹窗
+                    last_count = len(history)
+                    print(f"[SaveState] 基线建立，已知记录 {last_count} 条")
                 else:
-                    new_entries = [e for e in completed if entry_id(e) not in seen]
+                    new_entries = history[last_count:]
+                    last_count = len(history)
                     for e in new_entries:
-                        seen.add(entry_id(e))
+                        if not is_completed_work(e):
+                            continue
                         task_path = e.get("taskPath", "")
                         if not task_path:
                             continue

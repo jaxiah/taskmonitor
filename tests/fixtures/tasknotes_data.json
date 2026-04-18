@@ -1,0 +1,122 @@
+{
+  "tasksFolder": "TaskNotes/Tasks",
+  "moveArchivedTasks": true,
+  "archiveFolder": "TaskNotes/Archive",
+  "taskTag": "task",
+  "taskIdentificationMethod": "tag",
+  "hideIdentifyingTagsInCards": false,
+  "taskPropertyName": "",
+  "taskPropertyValue": "",
+  "excludedFolders": "",
+  "defaultTaskPriority": "normal",
+  "defaultTaskStatus": "open",
+  "taskOrgFiltersCollapsed": false,
+  "taskFilenameFormat": "zettel",
+  "storeTitleInFilename": true,
+  "customFilenameTemplate": "{title}",
+  "taskCreationDefaults": {
+    "defaultContexts": "",
+    "defaultTags": "",
+    "defaultProjects": "",
+    "useParentNoteAsProject": false,
+    "defaultTimeEstimate": 0,
+    "defaultRecurrence": "none",
+    "defaultDueDate": "none",
+    "defaultScheduledDate": "today",
+    "bodyTemplate": "",
+    "useBodyTemplate": false,
+    "defaultReminders": []
+  },
+  "pomodoroHistory": [
+    {
+      "id": "1000000000001",
+      "startTime": "2026-04-10T09:00:00.000+08:00",
+      "endTime": "2026-04-10T09:25:00.000+08:00",
+      "plannedDuration": 25,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/sample task alpha.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-10T09:00:00.000+08:00",
+          "endTime": "2026-04-10T09:25:00.000+08:00"
+        }
+      ]
+    },
+    {
+      "id": "1000000000002",
+      "startTime": "2026-04-10T09:30:00.000+08:00",
+      "endTime": "2026-04-10T09:35:00.000+08:00",
+      "plannedDuration": 5,
+      "type": "break",
+      "taskPath": "TaskNotes/Tasks/sample task alpha.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-10T09:30:00.000+08:00",
+          "endTime": "2026-04-10T09:35:00.000+08:00"
+        }
+      ]
+    },
+    {
+      "id": "1000000000003",
+      "startTime": "2026-04-10T09:35:00.000+08:00",
+      "endTime": "2026-04-10T10:00:00.000+08:00",
+      "plannedDuration": 25,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/sample task alpha.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-10T09:35:00.000+08:00",
+          "endTime": "2026-04-10T10:00:00.000+08:00"
+        }
+      ]
+    },
+    {
+      "id": "1000000000004",
+      "startTime": "2026-04-11T14:00:00.000+08:00",
+      "endTime": "2026-04-11T14:25:00.000+08:00",
+      "plannedDuration": 25,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/sample task beta.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-11T14:00:00.000+08:00",
+          "endTime": "2026-04-11T14:25:00.000+08:00"
+        }
+      ]
+    },
+    {
+      "id": "1000000000005",
+      "startTime": "2026-04-11T14:30:00.000+08:00",
+      "endTime": "2026-04-11T14:42:00.000+08:00",
+      "plannedDuration": 25,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/sample task beta.md",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-11T14:30:00.000+08:00",
+          "endTime": "2026-04-11T14:42:00.000+08:00"
+        }
+      ]
+    },
+    {
+      "id": "1000000000006",
+      "startTime": "2026-04-12T08:00:00.000+08:00",
+      "endTime": "2026-04-12T08:25:00.000+08:00",
+      "plannedDuration": 25,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/sample task gamma.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-04-12T08:00:00.000+08:00",
+          "endTime": "2026-04-12T08:25:00.000+08:00"
+        }
+      ]
+    }
+  ]
+}
